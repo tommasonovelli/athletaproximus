@@ -28,6 +28,14 @@ export const navItems: NavItem[] = [
     ],
   },
   {
+    title: "Pricing",
+    href: "/",
+  },
+  {
+    title: "Research",
+    href: "/",
+  },
+  {
     title: "Our Team",
     href: "#",
     items: [

@@ -220,7 +220,7 @@ export default function Home() {
       </div>
 
       {/* our team */}
-      <div className="bg-neutral-100 rounded-t-3xl">
+      <div className="bg-neutral-100 rounded-3xl">
         <div className="w-full mx-auto container py-24">
           <h2 className="font-work text-5xl tracking-tight">Our Team</h2>
 
@@ -232,36 +232,26 @@ export default function Home() {
                 <Link
                   href={item.link}
                   key={index}
-                  className="min-w-[290px] max-w-[340px] bg-white rounded-2xl p-1 hover:scale-[1.01] transition-all duration-200 shadow-lg"
+                  className="min-w-[290px] max-w-[340px] p-1 transition-all duration-200"
                 >
                   <div
-                    className="w-full h-[400px] bg-cover bg-center rounded-xl flex justify-end items-end p-4 mb-2"
+                    className="w-full h-[400px] bg-cover bg-center rounded-3xl flex justify-end items-end p-4"
                     style={{
                       backgroundImage: `url(/${item.image})`,
                     }}
                   ></div>
 
-                  <h3 className="font-work text-xl flex tracking-tight p-4 pb-0 items-center">
+                  <h3 className="font-work text-xl flex tracking-tight p-4 px-2 pb-0 items-center">
                     {item.name}
                   </h3>
 
-                  <h4 className="font-inter text-sm text-neutral-400/60 p-4 pt-0">
+                  <h4 className="font-inter text-sm text-neutral-400/60 p-4 px-2 pt-0">
                     {item.description}
                   </h4>
                 </Link>
               );
             })}
           </div>
-        </div>
-      </div>
-
-      <div className="bg-neutral-100 rounded-b-3xl">
-        <div className="w-full mx-auto container py-24">
-          <h2 className="font-work text-5xl tracking-tight text-center">
-            Our Pricings
-          </h2>
-
-          <PricingStand />
         </div>
       </div>
 
