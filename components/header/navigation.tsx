@@ -97,10 +97,10 @@ export function MainNavigation() {
               </li>
 
               <ListItem href="/docs" title="Ethan">
-                Mental Performance Coach <br /> Founder
+                Mental Performance Coach
               </ListItem>
               <ListItem href="/docs/primitives/typography" title="Serena">
-                Sports Nutritionist <br /> Co-Founder
+                Sports Nutritionist
               </ListItem>
               <ListItem href="/docs/installation" title="Giada">
                 Mental Performance Coach

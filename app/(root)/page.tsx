@@ -4,12 +4,12 @@ import Image from "next/image";
 
 // icons
 import { RiArrowRightUpLine } from "react-icons/ri";
+import { Check } from "lucide-react";
 
 // components
 import { MainNavigation } from "@/components/header/navigation";
 import { MobileNavButton } from "@/components/mobile-menu/button";
 import { HomeCoaching } from "@/components/coaching";
-import { PricingStand } from "@/components/pricings";
 
 import {
   Accordion,
@@ -28,12 +28,13 @@ import {
   homeOffers,
   homeCoaching,
   homeTeam,
+  homePricings,
 } from "@/constants";
 
 export default function Home() {
   return (
     <div className="w-full p-4">
-      <div
+      <section
         className="w-full h-screen bg-cover bg-top rounded-3xl flex flex-col justify-between"
         style={{
           height: "calc(100vh - 32px)",
@@ -118,10 +119,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* our mission */}
-      <div className="w-full mx-auto container py-24">
+      <section className="w-full mx-auto container py-24">
         <div className="w-full flex">
           <div className="w-1/3">
             <Link
@@ -150,10 +151,10 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* why coaching is important */}
-      <div className="w-full mx-auto container py-24">
+      <section className="w-full mx-auto container py-24">
         <div className="w-full pb-12">
           <h2 className="font-inter text-4xl text-neutral-400/60">
             Here's Why Coaching
@@ -186,10 +187,10 @@ export default function Home() {
             <HomeCoaching data={homeCoaching} />
           </div>
         </div>
-      </div>
+      </section>
 
       {/* what we offer */}
-      <div className="w-full mx-auto container py-24">
+      <section className="w-full mx-auto container py-24">
         <div className="w-full flex">
           <div className="w-2/3">
             <Accordion type="single" collapsible className="w-full">
@@ -217,16 +218,16 @@ export default function Home() {
             </h3>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* our team */}
-      <div className="bg-neutral-100 rounded-3xl">
+      <section className="bg-neutral-100 rounded-3xl">
         <div className="w-full mx-auto container py-24">
           <h2 className="font-work text-5xl tracking-tight">Our Team</h2>
 
           <div className="w-full border-b border-neural-200/60 my-8"></div>
 
-          <div className="w-full flex gap-x-4">
+          <div className="w-full flex gap-x-4 pt-1">
             {homeTeam.map((item, index) => {
               return (
                 <Link
@@ -253,7 +254,93 @@ export default function Home() {
             })}
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* pricing section */}
+      <section className="w-full mx-auto container py-24 flex justify-center">
+        <div className="w-full flex flex-col items-center">
+          <h2 className="font-work text-5xl tracking-tight">Our Pricing</h2>
+
+          <div className="w-full border-b border-neural-200/60 my-8"></div>
+          <div className="w-full flex gap-6 items-stretch">
+            {homePricings.map((item: any, index: number) => {
+              return (
+                <div className="w-1/3" key={index}>
+                  <div className={`h-full flex flex-col bg-neutral-100 p-8 rounded-3xl relative hover:scale-[1.02] ${item.popular ? "border border-black scale-[1.02]" : ""} transition-all duration-200`}>
+                    {item.popular && (
+                      <div className="absolute -top-3 -right-4 py-1.5 px-3 bg-palette-1 w-fit text-sm rounded-full border border-black">
+                        Popular
+                      </div>
+                    )}
+                    <h1 className="font-work tracking-tight text-2xl">
+                      {item.title}
+                    </h1>
+                    <p className="text-neutral-400/60 text-sm">
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    </p>
+                    <div className="w-full border-b border-neural-200/60 my-8 mb-4"></div>
+
+                    {/* price */}
+                    <div className="flex justify-end pr-6 pt-6 relative">
+                      {item.discount && (
+                        <div>
+                          <div className="absolute top-0 left-0 py-1.5 px-3 bg-palette-2 text-sm rounded-full">
+                            Save 20%
+                          </div>
+                          <p className="absolute top-0 right-16 text-neutral-500/60 line-through text-lg">
+                            {item.discount}&euro;
+                          </p>
+                        </div>
+                      )}
+                      <p className="font-work text-5xl">
+                        {item.price}&euro;
+                        <span className="text-neutral-400/60 text-base">
+                          /session
+                        </span>
+                      </p>
+                    </div>
+
+                    {/* benefits */}
+                    <div className="pt-6">
+                      <h4 className="font-work tracking-tight">Benefits</h4>
+
+                      <div className="flex flex-col gap-y-4 pt-4">
+                        {item.flags &&
+                          item.flags.map((flag: any, index: number) => {
+                            return (
+                              <div
+                                key={index}
+                                className="w-full flex items-center"
+                              >
+                                <div className="w-6 h-6 flex justify-center items-center rounded-full bg-palette-2 mr-2">
+                                  <Check className="w-4 h-4 text-black" />
+                                </div>
+                                <p
+                                  style={{ width: "calc(100% - 40px)" }}
+                                  className="text-neutral-800"
+                                >
+                                  {flag}
+                                </p>
+                              </div>
+                            );
+                          })}
+                      </div>
+                    </div>
+
+                    <div className="py-16 -z-1"></div>
+
+                    <div className="w-full absolute left-0 bottom-8 pt-8 px-8">
+                      <button className={`w-full border rounded-full py-3.5 font-work tracking-tight ${item.popular ? "bg-black text-white" : ""}`}>
+                        Start Now
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
 
       <div className="h-[2000px]"></div>
     </div>

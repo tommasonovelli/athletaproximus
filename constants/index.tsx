@@ -178,3 +178,33 @@ export const homeTeam = [
     description: "Mental Performance Coach"
   },
 ]
+
+export const homePricings = [
+  {
+    title: "Mental Coaching",
+    price: 59.99,
+    flags: [
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+    ]
+  },
+  {
+    title: "Nutrition Plan",
+    price: 59.99,
+    flags: [
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+    ]
+  },
+  { 
+    popular: true,
+    title: "Mind & Body Bundle",
+    price: 99.99,
+    discount: 119.99,
+    flags: [
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit.",
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit."
+    ]
+  }
+]
